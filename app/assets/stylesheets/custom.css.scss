@@ -30,6 +30,21 @@ body {
     margin-top: 20px;
 }
 
+.mybody {
+    background: no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-image: 
+	    linear-gradient(
+		    rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0.5)
+		), url(images/recipe.jpeg);
+	   	height:100%;	
+	 	width:100%;	
+}
+
 .center {
     text-align: center;
 }
@@ -64,6 +79,27 @@ h2 {
     color: white;
     padding:30px;
 }
+
+.well {
+    background-color: #ededed;
+}
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input {
+    height: auto !important;
+}
+
+alert {
+    background-color: grey;
+    padding: 10px;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
