@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MyRecipesOnRails</title>
+  <title>RecipesOnRails</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +9,32 @@
 <body>
   
   <%= render "layouts/navigation" %>
+  
+  <div style="background-size:100%;
+              background-image:linear-gradient(
+					    rgba(0, 0, 0, 0.6),
+					    rgba(0, 0, 0, 0.6)), 
+					    url(https://download.unsplash.com/reserve/fPuLkQNXRUKI6HQ2cMPf_IMG_4761.jpg); 
+					    height: 300px; 
+				      width: 100%;">
+    
+    <div class="row" style="font-color:white margin-top: 60px;">
+      <div class="col-md-12">
+        <h1 style="position: absolute; 
+                   top: 100px; 
+                   left: 0; 
+                   width: 100%;
+                   font: bold 60px Helvetica; 
+                   color: white" >
+                  What's gonna be today?
+                  <p style="font-size:30px"> Smells like pizza... </p>
+        </h1>
+      </div>  
+    </div>
+    
+    
+    
+  </div>
   <div class="container" style="margin-top:30px">
     <%= render "layouts/messages" %>
     <%= yield %>
@@ -18,3 +44,4 @@
   
 </body>
 </html>
+                                              

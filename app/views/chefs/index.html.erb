@@ -1,0 +1,23 @@
+<%= render 'shared/page_title', title: 'All chefs' %>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+        <%= will_paginate %>
+    </div>
+</div>
+
+<% @chefs.each do |chef| %>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 center">
+            <section>
+                <p><h1><span style="font-size:100px" class="glyphicon glyphicon-user" aria-hidden="true"></span></h1><%= chef.chefname %></p>
+            </section>
+            <%= link_to "View chef recipes", chef_path(chef), class: "" %>
+        </div>
+        
+        
+    </div>
+    <hr/>
+<% end %>
+
+<%= will_paginate %>

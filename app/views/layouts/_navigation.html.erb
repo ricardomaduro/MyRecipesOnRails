@@ -1,14 +1,16 @@
-<header class="navbar navbar-fixed-top navbar-default">
+<header class="navbar navbar-fixed-top navbar-default navbar-right">
     <div class="container">
-      <%=link_to "myRecipes", root_path, class: "btn btn-lg btn-success", id: "logo"%>
-      <div class="nav-item">
-        <%=link_to "link1","",class: "btn btn-default btn-warning"%>
+      <%=link_to (image_tag("https://cdn4.iconfinder.com/data/icons/X-Mac/education_icons/png/64/teachers_day.png")) + "Recipes on Rails", root_path, style:"color:black; font-size: 15px", id: "logo"%>
+      <div class="nav-item" style="margin-top:40px">
+        <%=link_to "Option 1","",class: ""%>
       </div>
-      <div class="nav-item">
-        <%=link_to "link2","",class: "btn btn-default btn-warning"%>
+      <div class="nav-item" style="margin-top:40px">
+        <%=link_to "Option 2","",class: ""%>
       </div>
-      <div class="nav-item">
-        <%=link_to "New recipe",new_recipe_path,class: "btn btn-default btn-warning"%>
-      </div>
+      <% if logged_in? %>
+        <div class="nav-item" style="margin-top:40px">
+          <%=link_to "New recipe",new_recipe_path,class: ""%>
+        </div>
+      <% end %>
     </div>
   </header>

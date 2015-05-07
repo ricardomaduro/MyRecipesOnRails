@@ -1,18 +1,20 @@
 <%= render 'shared/page_title', title: @recipe.name %>
-
+<br/><br/>
 <div class="row">
     <div class="col-md-4 pull-right center">
-        <!--<section>
-                <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= @recipe.chef.chefname %></p>
-        </section>-->
+        <section>
+                <p style="font-size: 100px"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></p>
+        </section>
+        
         <p>
             <h5>
-                Brough to you by: <%=@recipe.chef.chefname%>
+                Brought to you by: <%=@recipe.chef.chefname%>
             </h5>
         </p>
+        
     </div>
     <div class="col-md-8">
-        <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-success pull-right" %>
+        
         <h3><%=@recipe.summary%></h3>
         <div class="show_recipe">
             <%= image_tag(@recipe.picture.url,class:"gravatar") if @recipe.picture? %>
@@ -36,4 +38,8 @@
     </div>
 </div>
 
-<h5><%= link_to "Return to recipes listing", recipes_path, class:"btn btn-small btn-warning"%></h5>
+<h5>
+<%= link_to "Return to recipes listing", recipes_path, class:"btn btn-small btn-warning"%>
+<%= link_to "Back to chef", chef_path(@recipe.chef), class: "btn btn-danger" %>
+<%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-success" %>
+</h5>
