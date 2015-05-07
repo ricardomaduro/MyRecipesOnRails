@@ -41,5 +41,7 @@
 <h5>
 <%= link_to "Return to recipes listing", recipes_path, class:"btn btn-small btn-warning"%>
 <%= link_to "Back to chef", chef_path(@recipe.chef), class: "btn btn-danger" %>
-<%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-success" %>
+<% if logged_in? and @recipe.chef == current_user %>
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-success" %>
+<% end %>
 </h5>

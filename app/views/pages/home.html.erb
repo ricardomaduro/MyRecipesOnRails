@@ -1,24 +1,32 @@
 <div class="row">
     
     <div class="col-lg-4 center">
-      <h1 style="font-size: 70px; color:brown; text-shadow: 2px 2px 5px black;"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></h1>
+      <%= link_to (recipes_path) do %>
+        <img style="box-shadow: 10px 10px 5px #ccc;" src="https://cdn3.iconfinder.com/data/icons/humano2/72x72/mimetypes/type-list.png">
+      <% end %>
       <h3 class="midrow">View recipes as guest user</h3>
       <h5 class="">Browse and view recipes and sign up later</h5>
-      <p><%=link_to "Browse recipes listing",recipes_path,class: "left btn btn-warning btn-small"%></p>
+      
     </div>
     
     <div class="col-lg-4 center">
-      <h1 style="font-size: 70px; color:brown; text-shadow: 2px 2px 2px black;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></h1>
+      <%= link_to (login_path) do %>
+        <img style="box-shadow: 10px 10px 5px #ccc;" src="https://cdn3.iconfinder.com/data/icons/humano2/72x72/emblems/emblem-people.png">
+      <% end %>
+      
       <h3 class="midrow">Sign in to your account</h3>
       <h5 class="">Add/update recipes and much more</h5>
-      <p><%=link_to "Login to your account","",class: "btn btn-warning btn-small"%></p>
+      
     </div>
     
     <div class="col-lg-4 center">
-      <h1 style="font-size: 70px; color:brown; text-shadow: 2px 2px 5px black;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h1>
-      <h3 class="midrow">Chef register</h3>
+      <%= link_to (register_path) do %>
+        <img style="box-shadow: 10px 10px 5px #ccc;" src="https://cdn2.iconfinder.com/data/icons/humano2/72x72/actions/contact-new.png">
+      <% end %>
+      
+      <h3 class="midrow">Register new Chef</h3>
       <h5 class="">Sign up</h5>
-      <p><%=link_to "Sign up now!",register_path, class: "btn btn-small btn-success" %></p>
+      
     </div>
     
   </div>
