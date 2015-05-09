@@ -1,5 +1,12 @@
 <%= render 'shared/page_title', title: @recipe.name %>
 <br/><br/>
+<h5>
+<%= link_to "Return to recipes listing", recipes_path, class:"btn btn-sm btn-default"%>
+<%= link_to "Back to chef", chef_path(@recipe.chef), class: "btn btn-sm btn-default" %>
+<% if logged_in? and @recipe.chef == current_user %>
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-sm btn-default" %>
+<% end %>
+</h5>
 <div class="row">
     <div class="col-md-4 pull-right center">
         <section>
@@ -37,11 +44,3 @@
         </div>
     </div>
 </div>
-
-<h5>
-<%= link_to "Return to recipes listing", recipes_path, class:"btn btn-small btn-warning"%>
-<%= link_to "Back to chef", chef_path(@recipe.chef), class: "btn btn-danger" %>
-<% if logged_in? and @recipe.chef == current_user %>
-    <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-success" %>
-<% end %>
-</h5>
