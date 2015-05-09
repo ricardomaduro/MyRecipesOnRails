@@ -1,5 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-default navbar-right">
     <div class="container">
+      <%=link_to (image_tag("https://cdn4.iconfinder.com/data/icons/X-Mac/education_icons/png/64/teachers_day.png")) + "Recipes on Rails", root_path, style:"color:black; font-size: 15px", id: "logo"%>
       <% if logged_in? %>
         <ul class="nav-item pull-right" style="margin-top:40px; list-style-type:none">
           <li class="dropdown">
@@ -7,21 +8,18 @@
               <%= current_user.chefname %> <b class="caret"></b>
             <% end %>
             <ul class="dropdown-menu">
-              <li><%= link_to "View profile", chef_path(current_user) %></li>
+              <li><%= link_to "View my recipes", chef_path(current_user) %></li>
               <li><%= link_to "Edit profile", edit_chef_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to "Logout", logout_path %></li>
             </ul>
           </li>
         </ul>
-        <div class="nav-item pull-right" style="margin-top:40px">
+        <div class="nav-item" style="margin-top:40px">
           <%=link_to "New recipe",new_recipe_path,class: "btn btn-sm btn-default"%>
         </div>
-      <% else %>
-        <div class="nav-item pull-right" style="margin-top:40px">
-          <%=link_to "Log in",login_path,class: "btn btn-sm btn-success"%>
-        </div>
+      
       <% end %>
-      <%=link_to (image_tag("https://cdn4.iconfinder.com/data/icons/X-Mac/education_icons/png/64/teachers_day.png")) + "Recipes on Rails", root_path, style:"color:black; font-size: 15px", id: "logo"%>
+      
     </div>
   </header>

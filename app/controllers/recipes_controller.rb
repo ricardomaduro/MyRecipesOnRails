@@ -9,7 +9,6 @@ class RecipesController < ApplicationController
    end
    
    def show
-      #@recipe = Recipe.find(params[:id])
    end
    
    def new
@@ -29,12 +28,9 @@ class RecipesController < ApplicationController
    end
    
    def edit
-      # find the recipe by the id, which is under params
-      #@recipe = Recipe.find(params[:id])      
    end
    
    def update
-      #@recipe = Recipe.find(params[:id])
       if @recipe.update(recipe_params)
          flash[:success] = "Your recipe was updated succesfully!"
          redirect_to recipe_path(@recipe)
@@ -65,8 +61,8 @@ class RecipesController < ApplicationController
       end
       
    def require_same_user
-      if current_user != @chef
-            flash[:danger] = "You can only edit your own recipes"
+      if current_user != @recipe.chef
+            flash[:danger] = "You can only edit your own recipes "
             redirect_to recipes_path
       end
    end
