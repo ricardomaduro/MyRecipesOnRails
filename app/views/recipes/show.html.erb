@@ -3,8 +3,11 @@
 <h5>
 <%= link_to "Return to recipes listing", recipes_path, class:"btn btn-sm btn-default"%>
 <%= link_to "Back to chef", chef_path(@recipe.chef), class: "btn btn-sm btn-default" %>
-<% if logged_in? and @recipe.chef == current_user %>
+<% if logged_in? and (@recipe.chef == current_user) || current_user.admin? %>
     <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-sm btn-default" %>
+<% end %>
+<% if current_user.admin? %>
+    <%= link_to "Delete recipe", @recipe, method: :delete, class: "btn btn-sm btn-default", data: {confirm: "Are you sure?"} %>
 <% end %>
 </h5>
 <div class="row">
@@ -21,7 +24,7 @@
         
     </div>
     <div class="col-md-8">
-        
+
         <h3><%=@recipe.summary%></h3>
         <div class="show_recipe">
             <%= image_tag(@recipe.picture.url,class:"gravatar") if @recipe.picture? %>
