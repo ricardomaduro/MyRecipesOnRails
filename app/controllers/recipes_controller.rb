@@ -1,8 +1,9 @@
 class RecipesController < ApplicationController
    
-   before_action :set_recipe, only: [:edit, :update, :show, :like]  
-   before_action :require_user, except: [:show, :index, :like]
+   before_action :set_recipe, only: [:edit, :update, :show, :like, :review]  
+   before_action :require_user, except: [:show, :index, :like, :review]
    before_action :require_user_like, only: [:like]
+   before_action :require_user_review, only: [:review]
    before_action :require_same_user, only: [:edit, :update]
    before_action :admin_user, only: [:destroy]
    
@@ -11,7 +12,8 @@ class RecipesController < ApplicationController
    end
    
    def show
-   end
+		@review = Review.new
+	end
    
    def new
       @recipe = Recipe.new
@@ -53,6 +55,18 @@ class RecipesController < ApplicationController
       end
    end
    
+   def review
+      
+      review = Review.create(body: params[:body], chef: current_user, recipe: @recipe)
+      if review.valid? 
+          flash[:success] = "Your selection was succesfull"
+          redirect_to :back
+      else
+          flash[:danger] = "You can only like/dislike a recipe once"
+          redirect_to :back
+      end
+   end
+   
    def destroy
       
       Recipe.find(params[:id]).destroy
@@ -79,6 +93,13 @@ class RecipesController < ApplicationController
       end
       
       def require_user_like
+       if !logged_in?
+         flash[:danger] = "You must be logged in to perform that action"
+         redirect_to :back
+       end
+      end
+      
+      def require_user_review
        if !logged_in?
          flash[:danger] = "You must be logged in to perform that action"
          redirect_to :back

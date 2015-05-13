@@ -50,6 +50,32 @@
                     <i class="glyphicon glyphicon-thumbs-down"></i>&nbsp <%= @recipe.thumbs_down_total %>
                 <% end %>
             </div>
+            
+            
         </div>
+        
+        <% if logged_in? %>
+        
+        <div id="well_review" class="well">
+            <p>Create review</p>
+            <%= form_for([@recipe, @review]) do |f| %>
+            
+                <%= f.label :Review %>
+                <%= f.text_area :body, rows:7 %>
+            
+                <%= f.submit('Create review', class: "btn btn-success")%>
+            <% end %>
+        </div>        
+        <% end %>
+        
+        <% if @recipe.reviews.any? %>
+            <p>Reviews:</p>
+            <% @recipe.reviews.each do |review| %>
+                <div class="well">
+                    <p>Chef <%= review.chef.chefname %> says:</p>
+                    <p><%= review.body %></p>
+                </div>
+            <% end %>
+        <% end %>
     </div>
 </div>
